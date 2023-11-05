@@ -1,0 +1,21 @@
+.animated-number {
+  font-style: italic;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 100px;
+  position: relative;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
