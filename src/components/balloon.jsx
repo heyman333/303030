@@ -12,7 +12,9 @@ export const Balloon = ({ controls }) => {
   const handleClick = () => {
     setVisible(false);
     party.confetti(balloonRef.current, {
-      count: party.variation.range(30, 50),
+      count: party.variation.range(10, 15),
+      shapes: ["star", "roundedSquare"],
+      size: party.variation.range(0.5, 1),
     });
   };
 
