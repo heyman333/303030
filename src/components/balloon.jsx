@@ -16,9 +16,10 @@ export const Balloon = ({ controls }) => {
     });
   };
 
-  const initX = random(0, document.body.clientWidth - 100);
+  const initX = random(100, document.body.clientWidth - 350);
   const translateX = new Array(10).fill(0).map(() => random(-150, 250));
-  const yDuration = random(6, 30);
+  const rotate = new Array(5).fill(0).map(() => random(-3, 3));
+  const yDuration = random(4.5, 25);
 
   return (
     <AnimatePresence>
@@ -30,6 +31,7 @@ export const Balloon = ({ controls }) => {
               opacity: 1,
               y: -document.body.clientHeight,
               translateX: translateX,
+              rotate,
             },
           }}
           animate={controls}
@@ -39,6 +41,11 @@ export const Balloon = ({ controls }) => {
             y: document.body.clientHeight + initX,
           }}
           transition={{
+            rotate: {
+              duration: 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+            },
             translateX: {
               duration: 100,
               repeat: Infinity,
@@ -57,6 +64,7 @@ export const Balloon = ({ controls }) => {
             ref={balloonRef}
             onClick={handleClick}
             style={{
+              userSelect: "none",
               position: "absolute",
               aspectRatio: "1/1.3",
             }}
