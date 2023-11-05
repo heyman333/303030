@@ -2,11 +2,12 @@ import "./App.css";
 import React, { useEffect } from "react";
 import party from "party-js";
 import { EnhancedAnimatedNumber } from "./components";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 import { Balloon } from "./components";
 
 function App() {
+  const controls = useAnimation();
   const confettiRef = React.useRef(null);
   const handleOnAnimationStart = () => {
     setTimeout(() => {
@@ -42,6 +43,7 @@ function App() {
       animate={{
         backgroundColor: "#00000087",
       }}
+      onAnimationComplete={() => controls.start("up")}
       transition={{
         backgroundColor: {
           delay: 2.3,
@@ -90,7 +92,7 @@ function App() {
         </motion.div>
       </motion.div>
       {new Array(30).fill(0).map((_, idx) => (
-        <Balloon key={idx} />
+        <Balloon key={idx} controls={controls} />
       ))}
     </motion.div>
   );
