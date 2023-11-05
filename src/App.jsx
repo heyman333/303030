@@ -21,7 +21,7 @@ function App() {
     const handleOnClick = () => {
       const targets = document.querySelectorAll("#balloon");
       if (targets.length === 1) {
-        alert("축하합니다!, 풍선을 모두 터트렸어요");
+        alert("축하합니다!, 풍선을 다 터트렸으니 행복한일만 가득할거에요!");
       }
     };
 
