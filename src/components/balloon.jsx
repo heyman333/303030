@@ -1,5 +1,5 @@
 import red from "../assets/purple.png";
-import gold from "../assets/gold.png";
+import yellow from "../assets/yellow.png";
 import sky from "../assets/sky.png";
 
 import party from "party-js";
@@ -23,8 +23,21 @@ export const Balloon = ({ controls }) => {
 
   const initX = random(100, document.body.clientWidth - 350, true);
   const translateX = new Array(10).fill(0).map(() => random(-150, 250), true);
-  const rotate = new Array(5).fill(0).map(() => random(-3, 3));
   const yDuration = random(4.5, 25, true);
+
+  const getRotate = () => {
+    const number = random(0, 1, true).toFixed(1);
+
+    if (number >= 0.7) {
+      return [10, 0, -10, 0, -10];
+    }
+
+    if (number >= 0.3 && number < 0.7) {
+      return [40, 30, 40, 30, 60];
+    }
+
+    return [-15, 0, 10, 3, 0];
+  };
 
   const getSrc = () => {
     const number = random(0, 1, true).toFixed(1);
@@ -34,7 +47,7 @@ export const Balloon = ({ controls }) => {
     }
 
     if (number >= 0.3 && number < 0.7) {
-      return gold;
+      return yellow;
     }
 
     return sky;
@@ -50,7 +63,7 @@ export const Balloon = ({ controls }) => {
               opacity: 1,
               y: -document.body.clientHeight,
               translateX: translateX,
-              rotate,
+              rotate: getRotate(),
             },
           }}
           animate={controls}
@@ -61,7 +74,7 @@ export const Balloon = ({ controls }) => {
           }}
           transition={{
             rotate: {
-              duration: 10,
+              duration: random(10, 20, true),
               repeat: Infinity,
               repeatType: "reverse",
             },
@@ -85,7 +98,6 @@ export const Balloon = ({ controls }) => {
             style={{
               userSelect: "none",
               position: "absolute",
-              aspectRatio: "1/1.6",
             }}
             width={100}
             src={getSrc()}
