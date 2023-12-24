@@ -78,7 +78,7 @@ function App() {
         <motion.div
           className="title"
           style={{
-            fontSize: Math.ceil(document.body.clientWidth / 16.5),
+            fontSize: "1.6rem",
           }}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

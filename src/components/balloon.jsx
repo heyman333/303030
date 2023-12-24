@@ -87,7 +87,7 @@ export const Balloon = ({ controls }) => {
               position: "absolute",
               aspectRatio: "1/1.6",
             }}
-            width={120}
+            width={100}
             src={getSrc()}
             alt="balloon"
           />
