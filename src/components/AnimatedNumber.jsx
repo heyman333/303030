@@ -11,11 +11,7 @@ const LINE_HEIGHT = 100;
 
 // lib
 const AnimatedNumber = ({ animateToNumber }) => {
-  const animteTonumberString =
-    Math.abs(animateToNumber).toLocaleString("ko-KR");
-  const animateToNumbersArr = Array.from(animteTonumberString, Number).map(
-    (x, idx) => (isNaN(x) ? animteTonumberString[idx] : x)
-  );
+  const animateToNumbersArr = Array.from(`${animateToNumber}`, Number);
 
   return (
     <div className="container">
@@ -36,18 +32,12 @@ const AnimatedNumber = ({ animateToNumber }) => {
                   y: {
                     type: "spring",
                     stiffness: 30,
-                    damping: 10,
-                  },
-                  opacity: {
-                    duration: 1,
+                    damping: index + 9,
                   },
                 }}
-                initial={{ y: index === 0 ? -100 : 0, opacity: 1 }}
+                initial={{ y: -100 }}
                 animate={{
-                  opacity: index === 0 ? (i < 3 ? 0 : 1) : i < 17 ? 0 : 1,
-                  y:
-                    -1 * (LINE_HEIGHT * animateToNumbersArr[index]) -
-                    LINE_HEIGHT * 20 * index,
+                  y: -1 * (LINE_HEIGHT * n) - LINE_HEIGHT * 20,
                 }}
               >
                 {number}

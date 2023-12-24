@@ -74,7 +74,7 @@ function App() {
           duration: 5,
         }}
       >
-        <EnhancedAnimatedNumber animateToNumber={30} />
+        <EnhancedAnimatedNumber animateToNumber={2024} />
         <motion.div
           className="title"
           style={{
@@ -88,10 +88,10 @@ function App() {
             delay: 1.5,
           }}
         >
-          창원걸스의 30대를 축하합니다 <span ref={confettiRef}>🎉</span>
+          HAPPY NEW YEAR <span ref={confettiRef}>🎉</span>
         </motion.div>
       </motion.div>
-      {new Array(30).fill(0).map((_, idx) => (
+      {new Array(28).fill(0).map((_, idx) => (
         <Balloon key={idx} controls={controls} />
       ))}
     </motion.div>

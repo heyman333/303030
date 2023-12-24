@@ -1,4 +1,7 @@
-import balloon from "../assets/balloon.png";
+import red from "../assets/purple.png";
+import gold from "../assets/gold.png";
+import sky from "../assets/sky.png";
+
 import party from "party-js";
 import React from "react";
 import { random } from "lodash-es";
@@ -18,10 +21,24 @@ export const Balloon = ({ controls }) => {
     });
   };
 
-  const initX = random(100, document.body.clientWidth - 350);
-  const translateX = new Array(10).fill(0).map(() => random(-150, 250));
+  const initX = random(100, document.body.clientWidth - 350, true);
+  const translateX = new Array(10).fill(0).map(() => random(-150, 250), true);
   const rotate = new Array(5).fill(0).map(() => random(-3, 3));
-  const yDuration = random(4.5, 25);
+  const yDuration = random(4.5, 25, true);
+
+  const getSrc = () => {
+    const number = random(0, 1, true).toFixed(1);
+
+    if (number >= 0.7) {
+      return red;
+    }
+
+    if (number >= 0.3 && number < 0.7) {
+      return gold;
+    }
+
+    return sky;
+  };
 
   return (
     <AnimatePresence>
@@ -68,10 +85,10 @@ export const Balloon = ({ controls }) => {
             style={{
               userSelect: "none",
               position: "absolute",
-              aspectRatio: "1/1.3",
+              aspectRatio: "1/1.6",
             }}
-            width={180}
-            src={balloon}
+            width={120}
+            src={getSrc()}
             alt="balloon"
           />
         </motion.div>
