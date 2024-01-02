@@ -1,4 +1,4 @@
-import red from "../assets/purple.png";
+import purple from "../assets/purple.png";
 import yellow from "../assets/yellow.png";
 import sky from "../assets/sky.png";
 
@@ -22,28 +22,28 @@ export const Balloon = ({ controls }) => {
   };
 
   const initX = random(100, document.body.clientWidth - 350, true);
-  const translateX = new Array(10).fill(0).map(() => random(-150, 250), true);
+  const translateX = random(-250, 550, true);
   const yDuration = random(4.5, 25, true);
 
   const getRotate = () => {
     const number = random(0, 1, true).toFixed(1);
 
     if (number >= 0.7) {
-      return [10, 0, -10, 0, -10];
+      return 10;
     }
 
     if (number >= 0.3 && number < 0.7) {
-      return [40, 30, 40, 30, 60];
+      return 40;
     }
 
-    return [-15, 0, 10, 3, 0];
+    return -15;
   };
 
   const getSrc = () => {
     const number = random(0, 1, true).toFixed(1);
 
     if (number >= 0.7) {
-      return red;
+      return purple;
     }
 
     if (number >= 0.3 && number < 0.7) {
@@ -74,12 +74,12 @@ export const Balloon = ({ controls }) => {
           }}
           transition={{
             rotate: {
-              duration: random(10, 20, true),
+              duration: 8,
               repeat: Infinity,
               repeatType: "reverse",
             },
             translateX: {
-              duration: 100,
+              duration: 10,
               repeat: Infinity,
               repeatType: "reverse",
             },
